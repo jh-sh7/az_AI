@@ -8,33 +8,30 @@
 3. Public 선택, **Initialize this repository with a README** 체크 해제
 4. Create repository 클릭
 
-### 2) 로컬에서 Git 초기화 및 푸시
-프로젝트 폴더에서 PowerShell 또는 터미널을 열고:
+### 2) 로컬에서 GitHub로 푸시
+**이미 `git init`과 첫 커밋은 완료된 상태입니다.** GitHub에서 저장소만 만들고 아래 중 하나를 실행하세요.
+
+**방법 A: 스크립트 사용 (권장)**  
+프로젝트 폴더에서 PowerShell을 열고:
 
 ```powershell
 cd c:\Users\S\Desktop\az-AI
+.\push-to-github.ps1
+```
+실행 후 저장소 URL 입력 (예: `https://github.com/사용자명/az-AI.git`)
 
-# Git 초기화 (이미 했다면 생략)
-git init
+**방법 B: 직접 명령어**
+```powershell
+cd c:\Users\S\Desktop\az-AI
 
-# 모든 파일 스테이징
-git add .
-
-# 첫 커밋
-git commit -m "Initial commit: AI 자동화 서비스 (React + FastAPI)"
-
-# GitHub 저장소 연결 (아래 YOUR_USERNAME, YOUR_REPO를 본인 것으로 변경)
+# YOUR_USERNAME, YOUR_REPO를 본인 GitHub 사용자명/저장소명으로 변경
 git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO.git
-
-# 기본 브랜치 이름 설정
 git branch -M main
-
-# 푸시
 git push -u origin main
 ```
 
 GitHub 사용자명/저장소명을 모르면 GitHub 저장소 페이지 URL을 확인하세요.  
-예: `https://github.com/hong/test-repo` → `hong` / `test-repo`
+예: `https://github.com/hong/az-AI` → 사용자명 `hong` / 저장소명 `az-AI`
 
 ---
 
