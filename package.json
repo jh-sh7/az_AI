@@ -1,0 +1,9 @@
+{
+  "name": "az-ai",
+  "private": true,
+  "version": "1.0.0",
+  "description": "AI automation service - monorepo root for Vercel",
+  "scripts": {
+    "build": "cd frontend && npm install && npm run build"
+  }
+}
