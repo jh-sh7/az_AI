@@ -28,8 +28,7 @@ Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="AI 자동화 서비스", version="1.0.0")
 
-# CORS 설정 (개발 환경: localhost의 모든 포트 허용)
-# 개발 환경에서는 모든 localhost 포트를 허용
+# CORS 설정 (개발: localhost, 배포: Vercel 프론트엔드)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
@@ -41,8 +40,9 @@ app.add_middleware(
         "http://127.0.0.1:3001",
         "http://127.0.0.1:3002",
         "http://127.0.0.1:3003",
+        "https://az-ai-git-main-jh-sh7s-projects.vercel.app",
     ],
-    allow_origin_regex=r"https?://(localhost|127\.0\.0\.1)(:\d+)?",
+    allow_origin_regex=r"https?://(localhost|127\.0\.0\.1)(:\d+)?|https://.*\.vercel\.app",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

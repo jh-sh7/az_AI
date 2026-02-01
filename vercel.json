@@ -2,6 +2,9 @@
   "buildCommand": "npm run build",
   "outputDirectory": "frontend/build",
   "installCommand": "npm install",
+  "env": {
+    "CI": "false"
+  },
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ]

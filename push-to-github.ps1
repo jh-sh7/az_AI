@@ -7,12 +7,12 @@ param(
 )
 
 if ($RepoUrl -eq "") {
-    Write-Host "GitHub 저장소 URL을 입력하세요 (예: https://github.com/username/az-AI.git): " -NoNewline
+    Write-Host "Enter GitHub repo URL (e.g. https://github.com/username/az-AI.git): " -NoNewline
     $RepoUrl = Read-Host
 }
 
 if ($RepoUrl -eq "") {
-    Write-Host "오류: 저장소 URL이 필요합니다." -ForegroundColor Red
+    Write-Host "Error: Repository URL is required." -ForegroundColor Red
     exit 1
 }
 
@@ -23,11 +23,11 @@ git remote remove origin 2>$null
 
 git remote add origin $RepoUrl
 git branch -M main
-Write-Host "푸시 중... (GitHub 로그인 필요할 수 있음)" -ForegroundColor Green
+Write-Host "Pushing to GitHub..." -ForegroundColor Green
 git push -u origin main
 
 if ($LASTEXITCODE -eq 0) {
-    Write-Host "푸시 완료! 이제 Vercel에서 이 저장소를 Import 하세요: https://vercel.com/new" -ForegroundColor Green
+    Write-Host "Done! Import this repo on Vercel: https://vercel.com/new" -ForegroundColor Green
 } else {
-    Write-Host "푸시 실패. GitHub에서 저장소를 먼저 생성했는지 확인하세요: https://github.com/new" -ForegroundColor Red
+    Write-Host "Push failed. Create the repo first: https://github.com/new" -ForegroundColor Red
 }
