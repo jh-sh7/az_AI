@@ -1,5 +1,11 @@
 {
   "installCommand": "npm install --legacy-peer-deps",
   "buildCommand": "npm run build",
+  "outputDirectory": "build",
+  "framework": null,
+  "env": {
+    "GENERATE_SOURCEMAP": "false",
+    "CI": "false"
+  },
   "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }
